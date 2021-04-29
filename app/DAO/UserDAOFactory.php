@@ -3,7 +3,6 @@
 namespace App\DAO;
 
 use App\DAO\BaseDAOFactory;
-use App\Models\User;
 use App\Utils\BoltUtils;
 
 class UserDAOFactory implements BaseDAOFactory

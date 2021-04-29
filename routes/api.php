@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Apis\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,8 +37,10 @@ Route::prefix('shopify')->group(function () {
     });
 
     Route::prefix('users')->group(function () {
-        Route::post('/new', function (Request $request) {
-            echo (json_encode($request));
-        });
+        // Route::post('/new', function (Request $request) {
+        //     echo (json_encode($request));
+        // });
+
+        Route::get('/all', [UsersController::class, 'responseAll']);
     });
 });

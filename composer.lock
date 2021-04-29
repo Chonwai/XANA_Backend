@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69f59eae01c9053b92c5ba48e26dfef8",
+    "content-hash": "66e468a908cdf3f85da64719b28205ed",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3211,6 +3211,65 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "stefanak-michal/bolt",
+            "version": "v2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefanak-michal/Bolt.git",
+                "reference": "9f482dfe3fb21f5db7b2767c4f7f299ddb0de6f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefanak-michal/Bolt/zipball/9f482dfe3fb21f5db7b2767c4f7f299ddb0de6f1",
+                "reference": "9f482dfe3fb21f5db7b2767c4f7f299ddb0de6f1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-sockets": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=7.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michal Stefanak",
+                    "homepage": "https://www.linkedin.com/in/michalstefanak/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bolt protocol library over TCP socket",
+            "homepage": "https://github.com/stefanak-michal/Bolt",
+            "keywords": [
+                "Socket",
+                "bolt",
+                "database",
+                "neo4j"
+            ],
+            "support": {
+                "issues": "https://github.com/stefanak-michal/Bolt/issues",
+                "source": "https://github.com/stefanak-michal/Bolt"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/MichalStefanak",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2020-12-27T09:41:34+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8232,7 +8291,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.4|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

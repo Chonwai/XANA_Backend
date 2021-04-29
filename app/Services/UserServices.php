@@ -59,6 +59,8 @@ class UserServices implements BaseServicesInterface
 
         $data = Utils::extractBlotObject($data);
 
+        echo(json_encode($data));
+
         return Utils::responseMessage($data, 'unknownProblems');
     }
 
