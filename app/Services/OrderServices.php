@@ -9,7 +9,7 @@ use App\Utils\ResponseUtils;
 use App\Utils\Utils;
 use Illuminate\Support\Facades\Validator;
 
-class UserServices implements BaseServicesInterface
+class OrderServices implements BaseServicesInterface
 {
     private static $_instance = null;
 
@@ -71,7 +71,7 @@ class UserServices implements BaseServicesInterface
 
     public function insert($request)
     {
-        $data = DAOSimpleFactory::createUserDAO()->insert($request);
+        $data = DAOSimpleFactory::createOrderDAO()->insert($request);
 
         return Utils::responseMessage($data, 'unknownProblems');
     }

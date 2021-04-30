@@ -30,7 +30,7 @@ class ServicesResUnknownProblems implements ServicesResInterface
 
     public function createServicesRes($data)
     {
-        if ($data) {
+        if ($data !== null) {
             return Utils::integradeResponseMessage($data, true, 1);
         } else {
             return Utils::integradeResponseMessage(ResponseUtils::unknownProblems(), false, 9000);

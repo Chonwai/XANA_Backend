@@ -5,12 +5,12 @@ namespace App\DAO;
 use App\DAO\BaseDAOFactory;
 use App\Utils\BoltUtils;
 
-class UserDAOFactory implements BaseDAOFactory
+class OrderDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
         $bolt = BoltUtils::makeConnect();
-        $bolt->run('MATCH (u:User) RETURN u');
+        $bolt->run('MATCH (o:Order) RETURN o');
         return $bolt->pull();
     }
 
@@ -22,7 +22,7 @@ class UserDAOFactory implements BaseDAOFactory
     public function insert($request)
     {
         $bolt = BoltUtils::makeConnect();
-        $query = "CREATE (u:User {id: '$request->id', email: '$request->email', first_name: '$request->first_name', last_name: '$request->last_name', phone: '$request->phone'}) RETURN u";
+        $query = "CREATE (p:Order {id: '$request->id', email: '$request->email', contact_email: '$request->contact_email', phone: '$request->phone', handle: '$request->handle'}) RETURN p";
         $bolt->run($query);
         return $bolt->pull();
     }
@@ -40,5 +40,12 @@ class UserDAOFactory implements BaseDAOFactory
     public function countAll()
     {
         //
+    }
+
+    public function makeRelation($request) {
+        $bolt = BoltUtils::makeConnect();
+        $query = "CREATE (p:Order {id: '$request->id', title: '$request->title', vendor: '$request->vendor', handle: '$request->handle'}) RETURN p";
+        $bolt->run($query);
+        return $bolt->pull();
     }
 }

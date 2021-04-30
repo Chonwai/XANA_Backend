@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Apis\UsersController;
+use App\Http\Controllers\Apis\OrderController;
+use App\Http\Controllers\Apis\ProductController;
+use App\Http\Controllers\Apis\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('shopify')->group(function () {
     Route::prefix('products')->group(function () {
-        Route::post('/new', function (Request $request) {
-            echo (json_encode($request));
-        });
+        Route::post('/new', [ProductController::class, 'insert']);
 
         Route::post('/update', function (Request $request) {
             echo (json_encode($request));
@@ -31,16 +31,12 @@ Route::prefix('shopify')->group(function () {
     });
 
     Route::prefix('orders')->group(function () {
-        Route::post('/new', function (Request $request) {
-            echo (json_encode($request));
-        });
+        Route::post('/new', [OrderController::class, 'insert']);
     });
 
     Route::prefix('users')->group(function () {
-        // Route::post('/new', function (Request $request) {
-        //     echo (json_encode($request));
-        // });
+        Route::post('/new', [UserController::class, 'insert']);
 
-        Route::get('/all', [UsersController::class, 'responseAll']);
+        Route::get('/all', [UserController::class, 'responseAll']);
     });
 });

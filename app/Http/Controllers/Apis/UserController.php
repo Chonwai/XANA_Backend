@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Apis\BaseControllerInterface;
 use App\Http\Controllers\Controller;
-use App\Services\ChineseCuisineServices;
 use App\Services\UserServices;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller implements BaseControllerInterface
+class UserController extends Controller implements BaseControllerInterface
 {
     public function responseAll()
     {
@@ -31,7 +30,9 @@ class UsersController extends Controller implements BaseControllerInterface
 
     public function insert(Request $request)
     {
-        //
+        $data = UserServices::getInstance()->insert($request);
+
+        return response()->json($data, 200);
     }
 
     public function update(Request $request)
