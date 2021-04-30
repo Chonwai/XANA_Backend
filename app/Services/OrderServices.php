@@ -55,7 +55,7 @@ class OrderServices implements BaseServicesInterface
 
     public function responseAll()
     {
-        $data = DAOSimpleFactory::createUserDAO()->getAll();
+        $data = DAOSimpleFactory::createOrderDAO()->getAll();
 
         $data = Utils::extractBlotObject($data);
 
@@ -72,6 +72,10 @@ class OrderServices implements BaseServicesInterface
     public function insert($request)
     {
         $data = DAOSimpleFactory::createOrderDAO()->insert($request);
+
+        foreach ($request->line_items as $item) {
+            DAOSimpleFactory::createOrderDAO()->makeRelation($request['customer']['id'], $item['product_id'], $request->id);
+        }
 
         return Utils::responseMessage($data, 'unknownProblems');
     }

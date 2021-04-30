@@ -13,7 +13,7 @@ class OrderController extends Controller implements BaseControllerInterface
 {
     public function responseAll()
     {
-        $data = UserServices::getInstance()->responseAll();
+        $data = OrderServices::getInstance()->responseAll();
 
         return response()->json($data, 200);
     }
